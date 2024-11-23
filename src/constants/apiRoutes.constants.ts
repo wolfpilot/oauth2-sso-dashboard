@@ -6,6 +6,10 @@ export const apiRoutes: Routes = {
     label: "Authentication",
     url: "/api/auth",
   },
+  // signUp: {
+  //   label: "Sign Up",
+  //   url: "/api/auth/signup",
+  // },
   signIn: {
     label: "Sign In",
     url: "/api/auth/signin",

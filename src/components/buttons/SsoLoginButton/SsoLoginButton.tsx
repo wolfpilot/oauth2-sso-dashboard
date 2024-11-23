@@ -7,7 +7,7 @@ import { ProviderNames } from "@ts/auth.types"
 import { Props } from "./types"
 
 // Utils
-import { signinWithProvider } from "@utils/actions/auth.actions"
+import { signinWithProvider } from "@utils/actions/auth/signin.actions"
 import { isValidProvider } from "@utils/typeguards/auth.typeguards"
 
 // Styles

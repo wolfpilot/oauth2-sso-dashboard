@@ -10,6 +10,10 @@ export const clientRoutes: Routes = {
     label: "Dashboard",
     url: "/dashboard",
   },
+  signUp: {
+    label: "Sign Up",
+    url: "/sign-up",
+  },
   signIn: {
     label: "Sign In",
     url: "/sign-in",

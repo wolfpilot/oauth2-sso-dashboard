@@ -21,6 +21,7 @@
   },
   "dependencies": {
     "@auth/kysely-adapter": "^1.7.3",
+    "bcryptjs": "^2.4.3",
     "dotenv-flow": "^4.1.0",
     "kysely": "^0.27.4",
     "next": "15.0.2",
@@ -28,10 +29,13 @@
     "pg": "^8.13.1",
     "react": "19.0.0-rc-02c0e824-20241028",
     "react-dom": "19.0.0-rc-02c0e824-20241028",
-    "sanitize.css": "^13.0.0"
+    "react-hook-form": "^7.53.2",
+    "sanitize.css": "^13.0.0",
+    "zod": "^3.23.8"
   },
   "devDependencies": {
     "@playwright/test": "^1.48.2",
+    "@types/bcryptjs": "^2.4.6",
     "@types/node": "^20",
     "@types/pg": "^8.11.10",
     "@types/react": "^18",

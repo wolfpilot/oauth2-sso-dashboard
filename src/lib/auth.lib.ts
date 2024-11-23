@@ -1,4 +1,5 @@
 import NextAuth, { type NextAuthConfig } from "next-auth"
+import Credentials from "next-auth/providers/credentials"
 import GitHub from "next-auth/providers/github"
 import Google from "next-auth/providers/google"
 import { KyselyAdapter } from "@auth/kysely-adapter"
@@ -23,8 +24,45 @@ const config: NextAuthConfig = {
 
   // @ts-expect-error See above
   adapter: KyselyAdapter(db),
-  providers: [GitHub, Google],
+  providers: [
+    GitHub,
+    Google,
+    Credentials({
+      name: "Credentials",
+      credentials: {
+        email: {
+          label: "Email",
+          type: "email",
+          placeholder: "johndoe@example.com",
+        },
+        password: { label: "Password", type: "password" },
+      },
+      // TODO: Move to external func?
+      async authorize(credentials = {}, req) {
+        const { email, password } = credentials
+
+        if (!email || !password) return null
+
+        // ?: Do I need to check them again here? I should.
+
+        const res = await fetch("/your/endpoint", {
+          method: "POST",
+          body: JSON.stringify(credentials),
+          headers: { "Content-Type": "application/json" },
+        })
+        const user = await res.json()
+
+        if (res.ok && user) {
+          return user
+        }
+
+        return null
+      },
+    }),
+  ],
   pages: {
+    // TODO: how to trigger? Go to any URL with ?newUser param???
+    newUser: clientRoutes.signUp.url,
     signIn: clientRoutes.signIn.url,
     signOut: clientRoutes.dashboard.url,
   },

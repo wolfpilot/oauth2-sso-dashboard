@@ -27,6 +27,7 @@
       "@constants/*": ["./src/constants/*"],
       "@lib/*": ["./src/lib/*"],
       "@middleware/*": ["./src/middleware/*"],
+      "@schemas/*": ["./src/schemas/*"],
       "@styles/*": ["./src/styles/*"],
       "@ts/*": ["./src/types/*"],
       "@utils/*": ["./src/utils/*"]

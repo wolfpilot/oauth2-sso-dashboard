@@ -32,6 +32,17 @@ const SignInPage = async () => {
           <SsoLoginButton provider="github" />
           <SsoLoginButton provider="google" />
         </div>
+
+        <hr />
+
+        <p>or continue with e-mail</p>
+
+        {/* TODO: Add form here */}
+
+        <p>
+          Don&#39;t have an account? Register{" "}
+          <a href={`${clientRoutes.signUp.url}`}>here</a> first.
+        </p>
       </ContentBlock>
     </Container>
   )
